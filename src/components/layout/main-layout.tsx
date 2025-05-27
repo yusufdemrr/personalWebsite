@@ -2,7 +2,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Download, FileText, Menu, X } from 'lucide-react';
+import { FileText, Menu, X } from 'lucide-react';
 import { cvData } from '@/data/cv';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 
@@ -27,12 +27,6 @@ const NavLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => (
     <Link href="/#contact" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
       Contact
     </Link>
-    <Button variant="outline" size="sm" asChild className="mt-4 md:mt-0 md:ml-4">
-      <a href={cvData.cvPath} download={`${cvData.name.replace(' ', '_')}_CV.pdf`}>
-        <Download className="mr-2 h-4 w-4" />
-        Download CV
-      </a>
-    </Button>
   </>
 );
 

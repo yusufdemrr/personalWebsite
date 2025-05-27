@@ -6,7 +6,7 @@ import type { Project, ExperienceEntry, EducationEntry, VolunteeringEntry, Certi
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Download, Mail, ArrowRight, MapPin } from 'lucide-react';
+import { Mail, ArrowRight, MapPin } from 'lucide-react';
 import { Section } from '@/components/shared/section';
 
 function ProjectCard({ project }: { project: Project }) {
@@ -70,11 +70,6 @@ export default function HomePage() {
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
-              <a href={cvData.cvPath} download={`${cvData.name.replace(' ', '_')}_CV.pdf`}>
-                <Download className="mr-2 h-5 w-5" /> Download CV
-              </a>
-            </Button>
-            <Button size="lg" variant="outline" asChild className="shadow-lg hover:shadow-accent/50 transition-shadow">
               <a href={`mailto:${cvData.email}?subject=Contact from ${cvData.name}'s Website`}>
                 <Mail className="mr-2 h-5 w-5" /> Contact Me
               </a>
