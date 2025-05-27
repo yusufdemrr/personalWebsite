@@ -2,14 +2,14 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { FileText, Menu, X } from 'lucide-react';
+import { FileText, Menu, X, Home as HomeIcon } from 'lucide-react'; // Added HomeIcon
 import { cvData } from '@/data/cv';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 
 const SiteLogo = () => (
   <Link href="/" className="text-2xl font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-2">
-    <FileText className="h-7 w-7" />
-    <span>{cvData.name}</span>
+    <HomeIcon className="h-7 w-7" />
+    <span>Home</span>
   </Link>
 );
 
