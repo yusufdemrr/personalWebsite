@@ -2,11 +2,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { cvData } from '@/data/cv';
-import type { Project, ExperienceEntry, EducationEntry, VolunteeringEntry, Certification } from '@/data/cv'; // Added types
+import type { Project, ExperienceEntry, EducationEntry, VolunteeringEntry, Certification } from '@/data/cv';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Download, Mail, ArrowRight, ExternalLink, Github, MapPin, Phone } from 'lucide-react'; // Added MapPin, Phone
+import { Download, Mail, ArrowRight, MapPin } from 'lucide-react';
 import { Section } from '@/components/shared/section';
 
 function ProjectCard({ project }: { project: Project }) {
@@ -56,7 +56,7 @@ export default function HomePage() {
             {cvData.name}
           </h1>
           <p className="text-xl md:text-2xl text-foreground/90 mb-6">
-            {cvData.title} {/* This title is updated from cvData */}
+            {cvData.title}
           </p>
           <p className="max-w-2xl mx-auto text-muted-foreground mb-10 text-lg">
             {cvData.shortIntro}
@@ -65,11 +65,6 @@ export default function HomePage() {
             {cvData.location && (
               <span className="flex items-center">
                 <MapPin className="mr-1.5 h-4 w-4" /> {cvData.location}
-              </span>
-            )}
-            {cvData.phone && (
-              <span className="flex items-center">
-                <Phone className="mr-1.5 h-4 w-4" /> {cvData.phone}
               </span>
             )}
           </div>
@@ -87,17 +82,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* About Section */}
-      <Section title="About Me" id="about" subtitle="A little about my journey and passion.">
-        <Card className="p-6 md:p-8 shadow-lg">
-          <CardContent>
-            <p className="text-foreground/90 leading-relaxed whitespace-pre-line text-center md:text-left">
-              {cvData.summary}
-            </p>
-          </CardContent>
-        </Card>
-      </Section>
 
       {/* Skills Section */}
       <Section title="My Skills" id="skills" subtitle="Technologies and tools I work with.">
@@ -180,7 +164,7 @@ export default function HomePage() {
 
       {/* Education Section */}
       <Section title="Education" id="education" subtitle="My academic background and qualifications.">
-         <div className="grid md:grid-cols-1 gap-8"> {/* Changed to 1 col for better cert display */}
+         <div className="grid md:grid-cols-1 gap-8">
           {cvData.education.map((edu: EducationEntry, index) => (
             <Card key={index} className="shadow-lg">
               <CardHeader>
@@ -219,7 +203,7 @@ export default function HomePage() {
 
       {/* Projects Section */}
       <Section title="Featured Projects" id="projects" subtitle="Some projects I'm proud of.">
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8"> {/* Changed to 2 cols */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {cvData.projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

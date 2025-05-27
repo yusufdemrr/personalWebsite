@@ -15,9 +15,6 @@ const SiteLogo = () => (
 
 const NavLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => (
   <>
-    <Link href="/#about" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
-      About
-    </Link>
     <Link href="/#experience" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
       Experience
     </Link>

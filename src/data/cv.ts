@@ -56,7 +56,6 @@ export interface CVData {
   name: string;
   title: string;
   email: string;
-  phone?: string;
   location?: string;
   shortIntro: string;
   summary: string;
@@ -72,9 +71,8 @@ export interface CVData {
 
 export const cvData: CVData = {
   name: "Yusuf Demir",
-  title: "Computer Engineering Student & AI Developer", // Updated title
+  title: "Computer Engineering Student & AI Developer",
   email: "yusufdemrr@hotmail.com",
-  phone: "+90 536 989 95 65",
   location: "Ankara, Türkiye",
   shortIntro: "A proactive Computer Engineering student at Hacettepe University with hands-on experience in software development, machine learning, and AI research. Passionate about building innovative solutions.",
   summary: `Driven Computer Engineering student at Hacettepe University (GPA: 3.43/4.0) with a strong foundation in software development and a keen interest in Artificial Intelligence.
@@ -93,10 +91,10 @@ Actively involved in tech communities through volunteering and leadership roles,
     { name: "Spring Boot", category: "Frameworks/Libraries", icon: Cpu },
     { name: "Git", category: "Tools", icon: Github },
     { name: "TensorBoard", category: "Tools", icon: Zap },
-    { name: "Unity", category: "Tools", icon: Zap }, // Consider a game engine icon if available
+    { name: "Unity", category: "Tools", icon: Zap },
     { name: "Pandas", category: "Frameworks/Libraries", icon: Database },
     { name: "NumPy", category: "Frameworks/Libraries", icon: Database },
-    { name: "Matplotlib", category: "Frameworks/Libraries", icon: Zap }, // Consider a chart icon
+    { name: "Matplotlib", category: "Frameworks/Libraries", icon: Zap },
     { name: "Agile Methodologies", category: "General", icon: Users },
     { name: "Problem Solving", category: "General", icon: Star },
     { name: "Team Collaboration", category: "General", icon: Users },
@@ -162,7 +160,6 @@ Actively involved in tech communities through volunteering and leadership roles,
       organization: "GDSC Hacettepe",
       period: "October 2022 - July 2023",
       description: [
-        // CV doesn't list specific responsibilities here, can be left as is or a generic one added
         "Coordinated social media presence and graphic design efforts for the Google Developer Student Club."
       ],
       icon: UsersRound,
@@ -204,9 +201,9 @@ Actively involved in tech communities through volunteering and leadership roles,
       repoUrl: "https://github.com/demrr/repo2",
     },
   ],
-  cvPath: "/Yusuf_Demir_CV.pdf", // Updated CV path
+  cvPath: "/Yusuf_Demir_CV.pdf",
   socials: [
-    { name: "LinkedIn", url: "https://linkedin.com/in/yusufdemrr", icon: Linkedin },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/yusufdemrr/", icon: Linkedin },
     { name: "GitHub", url: "https://github.com/yusufdemrr", icon: Github },
     { name: "Email", url: "mailto:yusufdemrr@hotmail.com", icon: Mail },
   ]
