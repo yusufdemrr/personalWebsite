@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -5,7 +6,7 @@ import { cvData } from '@/data/cv';
 import type { Project } from '@/data/cv';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ExternalLink, Github as GithubIcon } from 'lucide-react'; // Renamed to avoid conflict
+import { ArrowLeft, ExternalLink, Github as GithubIcon } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Section } from '@/components/shared/section';
 
@@ -15,7 +16,6 @@ export async function generateStaticParams() {
   }));
 }
 
-// This function generates metadata for each project page
 export async function generateMetadata({ params }: { params: { projectId: string } }) {
   const project = cvData.projects.find(p => p.id === params.projectId);
   if (!project) {
@@ -54,14 +54,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       
       <Card className="overflow-hidden shadow-xl">
         <CardHeader className="p-0">
-            <div className="relative aspect-video w-full"> {/* Use aspect-video for 16:9 */}
+            <div className="relative aspect-video w-full">
               <Image
-                src={project.imageUrl || "https://placehold.co/1200x675.png"} // Placeholder with 16:9 ratio
+                src={project.imageUrl || "https://placehold.co/1200x675.png"}
                 alt={project.title}
                 fill
                 className="object-cover"
                 data-ai-hint={project.dataAiHint || "project technology"}
-                priority // Prioritize loading the main project image
+                priority
               />
             </div>
         </CardHeader>
@@ -80,7 +80,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           <div className="mb-8">
             <h3 className="text-lg font-semibold text-primary mb-2">Project Overview:</h3>
             <div className="text-foreground/90 leading-relaxed space-y-4 whitespace-pre-line">
-              {/* For more complex descriptions, consider a Markdown renderer */}
               {project.longDescription.split('\\n').map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
               ))}

@@ -1,13 +1,15 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { cvData } from '@/data/cv';
+import type { Project, ExperienceEntry, EducationEntry, VolunteeringEntry, Certification } from '@/data/cv'; // Added types
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Download, Mail, ArrowRight, ExternalLink, Github } from 'lucide-react';
+import { Download, Mail, ArrowRight, ExternalLink, Github, MapPin, Phone } from 'lucide-react'; // Added MapPin, Phone
 import { Section } from '@/components/shared/section';
 
-function ProjectCard({ project }: { project: import('@/data/cv').Project }) {
+function ProjectCard({ project }: { project: Project }) {
   return (
     <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/30 bg-card/80 backdrop-blur-sm">
       <CardHeader className="p-0">
@@ -33,7 +35,7 @@ function ProjectCard({ project }: { project: import('@/data/cv').Project }) {
       <CardFooter className="p-6 pt-0">
         <Link href={`/projects/${project.id}`} className="w-full">
           <Button variant="outline" className="w-full group">
-            Detayları Gör <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            View Details <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </Link>
       </CardFooter>
@@ -54,20 +56,32 @@ export default function HomePage() {
             {cvData.name}
           </h1>
           <p className="text-xl md:text-2xl text-foreground/90 mb-6">
-            {cvData.title}
+            {cvData.title} {/* This title is updated from cvData */}
           </p>
           <p className="max-w-2xl mx-auto text-muted-foreground mb-10 text-lg">
             {cvData.shortIntro}
           </p>
+           <div className="flex flex-col sm:flex-row justify-center items-center gap-2 text-sm text-muted-foreground mb-6">
+            {cvData.location && (
+              <span className="flex items-center">
+                <MapPin className="mr-1.5 h-4 w-4" /> {cvData.location}
+              </span>
+            )}
+            {cvData.phone && (
+              <span className="flex items-center">
+                <Phone className="mr-1.5 h-4 w-4" /> {cvData.phone}
+              </span>
+            )}
+          </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
               <a href={cvData.cvPath} download={`${cvData.name.replace(' ', '_')}_CV.pdf`}>
-                <Download className="mr-2 h-5 w-5" /> CV İndir
+                <Download className="mr-2 h-5 w-5" /> Download CV
               </a>
             </Button>
             <Button size="lg" variant="outline" asChild className="shadow-lg hover:shadow-accent/50 transition-shadow">
-              <a href={`mailto:${cvData.email}?subject=${cvData.name}'in Web Sitesinden İletişim`}>
-                <Mail className="mr-2 h-5 w-5" /> Bana Ulaşın
+              <a href={`mailto:${cvData.email}?subject=Contact from ${cvData.name}'s Website`}>
+                <Mail className="mr-2 h-5 w-5" /> Contact Me
               </a>
             </Button>
           </div>
@@ -75,7 +89,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <Section title="Hakkımda" id="about" subtitle="Yolculuğum ve tutkum hakkında biraz bilgi.">
+      <Section title="About Me" id="about" subtitle="A little about my journey and passion.">
         <Card className="p-6 md:p-8 shadow-lg">
           <CardContent>
             <p className="text-foreground/90 leading-relaxed whitespace-pre-line text-center md:text-left">
@@ -86,7 +100,7 @@ export default function HomePage() {
       </Section>
 
       {/* Skills Section */}
-      <Section title="Uzmanlık Alanlarım" id="skills" subtitle="Çalıştığım teknolojiler ve araçlar.">
+      <Section title="My Skills" id="skills" subtitle="Technologies and tools I work with.">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map(category => (
             <Card key={category} className="shadow-md">
@@ -109,19 +123,20 @@ export default function HomePage() {
       </Section>
 
       {/* Experience Section */}
-      <Section title="İş Deneyimi" id="experience" subtitle="Profesyonel kariyerimdeki kilometre taşları.">
+      <Section title="Work Experience" id="experience" subtitle="Milestones in my professional career.">
         <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-border/70 md:before:mx-auto md:before:ml-0">
-          {cvData.experience.map((exp, index) => (
+          {cvData.experience.map((exp: ExperienceEntry, index) => (
             <div key={index} className="relative flex items-start md:grid md:grid-cols-2 md:gap-8">
               <div className="hidden md:flex md:flex-col md:items-end md:text-right pr-8">
                 <p className="text-sm font-semibold text-primary">{exp.period}</p>
+                {exp.location && <p className="text-xs text-muted-foreground mt-1">{exp.location}</p>}
               </div>
               <div className="relative pl-10 before:absolute before:left-5 before:top-2 before:h-5 before:w-5 before:rounded-full before:bg-primary before:ring-4 before:ring-background md:pl-0 md:before:hidden">
                 <Card className="shadow-lg w-full">
                   <CardHeader>
                     <CardTitle className="text-xl text-foreground">{exp.role}</CardTitle>
                     <CardDescription className="text-primary font-medium">{exp.company}</CardDescription>
-                    <p className="text-xs text-muted-foreground md:hidden">{exp.period}</p>
+                     <p className="text-xs text-muted-foreground md:hidden">{exp.period} {exp.location && `• ${exp.location}`}</p>
                   </CardHeader>
                   <CardContent>
                     <ul className="list-disc list-inside space-y-1 text-sm text-foreground/80">
@@ -134,11 +149,39 @@ export default function HomePage() {
           ))}
         </div>
       </Section>
+      
+      {/* Volunteering Section */}
+      <Section title="Volunteering" id="volunteering" subtitle="Giving back to the community.">
+        <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-border/70 md:before:mx-auto md:before:ml-0">
+          {cvData.volunteering.map((vol: VolunteeringEntry, index) => (
+            <div key={index} className="relative flex items-start md:grid md:grid-cols-2 md:gap-8">
+              <div className="hidden md:flex md:flex-col md:items-end md:text-right pr-8">
+                <p className="text-sm font-semibold text-primary">{vol.period}</p>
+              </div>
+              <div className="relative pl-10 before:absolute before:left-5 before:top-2 before:h-5 before:w-5 before:rounded-full before:bg-primary before:ring-4 before:ring-background md:pl-0 md:before:hidden">
+                <Card className="shadow-lg w-full">
+                  <CardHeader>
+                    {vol.icon && <vol.icon className="h-6 w-6 text-primary mb-1" />}
+                    <CardTitle className="text-xl text-foreground">{vol.role}</CardTitle>
+                    <CardDescription className="text-primary font-medium">{vol.organization}</CardDescription>
+                    <p className="text-xs text-muted-foreground md:hidden">{vol.period}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="list-disc list-inside space-y-1 text-sm text-foreground/80">
+                      {vol.description.map((desc, i) => <li key={i}>{desc}</li>)}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       {/* Education Section */}
-      <Section title="Eğitim" id="education" subtitle="Akademik geçmişim ve niteliklerim.">
-         <div className="grid md:grid-cols-2 gap-8">
-          {cvData.education.map((edu, index) => (
+      <Section title="Education" id="education" subtitle="My academic background and qualifications.">
+         <div className="grid md:grid-cols-1 gap-8"> {/* Changed to 1 col for better cert display */}
+          {cvData.education.map((edu: EducationEntry, index) => (
             <Card key={index} className="shadow-lg">
               <CardHeader>
                 {edu.icon && <edu.icon className="h-8 w-8 text-primary mb-2" />}
@@ -158,9 +201,25 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Certifications Section */}
+      <Section title="Certifications" id="certifications" subtitle="My professional certifications and achievements.">
+         <div className="grid md:grid-cols-2 gap-8">
+          {cvData.certifications.map((cert: Certification, index) => (
+            <Card key={index} className="shadow-lg">
+              <CardHeader>
+                {cert.icon && <cert.icon className="h-8 w-8 text-primary mb-2" />}
+                <CardTitle className="text-xl text-foreground">{cert.name}</CardTitle>
+                <CardDescription className="text-primary font-medium">{cert.issuer}</CardDescription>
+                <p className="text-xs text-muted-foreground">{cert.date}</p>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
       {/* Projects Section */}
-      <Section title="Öne Çıkan Projeler" id="projects" subtitle="Gurur duyduğum bazı projeler.">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <Section title="Featured Projects" id="projects" subtitle="Some projects I'm proud of.">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8"> {/* Changed to 2 cols */}
           {cvData.projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
@@ -168,15 +227,15 @@ export default function HomePage() {
       </Section>
 
       {/* Contact Section */}
-      <Section title="İletişime Geçelim" id="contact" className="bg-card/30" subtitle="Yeni projeleri, yaratıcı fikirleri veya fırsatları görüşmeye her zaman açığım.">
+      <Section title="Get In Touch" id="contact" className="bg-card/30" subtitle="I'm always open to discussing new projects, creative ideas, or opportunities.">
         <div className="max-w-md mx-auto text-center">
           <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
-            <a href={`mailto:${cvData.email}?subject=${cvData.name}'in Web Sitesinden Talep`}>
-              <Mail className="mr-2 h-5 w-5" /> E-posta Gönder
+            <a href={`mailto:${cvData.email}?subject=Inquiry from ${cvData.name}'s Website`}>
+              <Mail className="mr-2 h-5 w-5" /> Send Email
             </a>
           </Button>
           <div className="mt-8 flex justify-center gap-6">
-            {cvData.socials.map(social => social.name !== "Email" && ( // Exclude email as it's a button
+            {cvData.socials.map(social => social.name !== "Email" && ( 
               <Link key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <social.icon className="h-8 w-8" />
                 <span className="sr-only">{social.name}</span>

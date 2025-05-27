@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -17,10 +18,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `Yusuf Demir | Kişisel Web Sitesi`,
-    template: `%s | Yusuf Demir`,
+    default: `${cvData.name} | Personal Website`, // Updated to English
+    template: `%s | ${cvData.name}`, // Updated to English
   },
-  description: `${cvData.name}'in kişisel portfolyo ve özgeçmiş sitesi. ${cvData.title}.`,
+  description: cvData.shortIntro, // Using new shortIntro
 };
 
 export default function RootLayout({

@@ -1,5 +1,6 @@
+
 import type { ElementType } from 'react';
-import { Briefcase, GraduationCap, Cpu, Code, Database, Zap, Users, Linkedin, Github, FileText, Mail, Star } from 'lucide-react';
+import { Briefcase, GraduationCap, Cpu, Code, Database, Zap, Users, Linkedin, Github, FileText, Mail, Star, Award, UsersRound } from 'lucide-react'; // Added Award, UsersRound
 
 export interface Project {
   id: string;
@@ -19,6 +20,7 @@ export interface ExperienceEntry {
   period: string;
   responsibilities: string[];
   icon?: ElementType;
+  location?: string;
 }
 
 export interface EducationEntry {
@@ -32,130 +34,180 @@ export interface EducationEntry {
 export interface Skill {
   name: string;
   icon?: ElementType;
-  category: 'Frontend' | 'Backend' | 'DevOps' | 'Databases' | 'Tools' | 'General';
+  category: 'Programming Languages' | 'Frameworks/Libraries' | 'Tools' | 'General' | 'Databases' | 'DevOps'; // Adjusted categories
+}
+
+export interface VolunteeringEntry {
+  role: string;
+  organization: string;
+  period: string;
+  description: string[];
+  icon?: ElementType;
+}
+
+export interface Certification {
+  name: string;
+  issuer: string;
+  date: string;
+  icon?: ElementType;
 }
 
 export interface CVData {
   name: string;
   title: string;
   email: string;
+  phone?: string;
+  location?: string;
   shortIntro: string;
   summary: string;
   skills: Skill[];
   experience: ExperienceEntry[];
   education: EducationEntry[];
+  volunteering: VolunteeringEntry[];
   projects: Project[];
+  certifications: Certification[];
   cvPath: string;
   socials: { name: string; url: string; icon: ElementType }[];
 }
 
 export const cvData: CVData = {
   name: "Yusuf Demir",
-  title: "Full-Stack Developer & AI Innovator",
-  email: "yusuf.demir@example.com",
-  shortIntro: "Crafting intelligent web solutions with a passion for cutting-edge technology.",
-  summary: "A dynamic and results-oriented Full-Stack Developer with over 5 years of expertise in designing, developing, and deploying robust web applications and AI-driven features. Adept at leading project lifecycles from concept to launch, with a strong commitment to continuous learning and leveraging emerging technologies. Seeking to contribute to ambitious projects that push the boundaries of web and AI.",
+  title: "Computer Engineering Student & AI Developer", // Updated title
+  email: "yusufdemrr@hotmail.com",
+  phone: "+90 536 989 95 65",
+  location: "Ankara, Türkiye",
+  shortIntro: "A proactive Computer Engineering student at Hacettepe University with hands-on experience in software development, machine learning, and AI research. Passionate about building innovative solutions.",
+  summary: `Driven Computer Engineering student at Hacettepe University (GPA: 3.43/4.0) with a strong foundation in software development and a keen interest in Artificial Intelligence.
+Proven ability to contribute to research projects, develop AI models, and work with diverse technologies including Python, C++, Java, JavaScript, PyTorch, React, and Spring Boot.
+Actively involved in tech communities through volunteering and leadership roles, such as Captain of the R&D AI Unit at ACM Hacettepe and Social Media & Graphic Design Team Coordinator at GDSC Hacettepe. Eager to apply skills and learn in challenging environments.`,
   skills: [
-    { name: "JavaScript (ES6+)", category: "Frontend", icon: Code },
-    { name: "TypeScript", category: "Frontend", icon: Code },
-    { name: "React", category: "Frontend", icon: Code },
-    { name: "Next.js", category: "Frontend", icon: Code },
-    { name: "HTML5 & CSS3", category: "Frontend", icon: Code },
-    { name: "Tailwind CSS", category: "Frontend", icon: Code },
-    { name: "Node.js", category: "Backend", icon: Cpu },
-    { name: "Python", category: "Backend", icon: Cpu },
-    { name: "Express.js", category: "Backend", icon: Cpu },
-    { name: "FastAPI", category: "Backend", icon: Cpu },
-    { name: "GraphQL", category: "Backend", icon: Zap },
-    { name: "REST APIs", category: "Backend", icon: Zap },
-    { name: "PostgreSQL", category: "Databases", icon: Database },
-    { name: "MongoDB", category: "Databases", icon: Database },
-    { name: "Docker", category: "DevOps", icon: Zap },
-    { name: "Kubernetes", category: "DevOps", icon: Zap },
-    { name: "AWS", category: "DevOps", icon: Zap },
-    { name: "Git & GitHub", category: "Tools", icon: Github },
+    { name: "Python", category: "Programming Languages", icon: Code },
+    { name: "Java", category: "Programming Languages", icon: Code },
+    { name: "C++", category: "Programming Languages", icon: Code },
+    { name: "JavaScript", category: "Programming Languages", icon: Code },
+    { name: "PyTorch", category: "Frameworks/Libraries", icon: Cpu },
+    { name: "Stable Baselines3", category: "Frameworks/Libraries", icon: Cpu },
+    { name: "Ray", category: "Frameworks/Libraries", icon: Cpu },
+    { name: "OpenCV", category: "Frameworks/Libraries", icon: Code },
+    { name: "React", category: "Frameworks/Libraries", icon: Code },
+    { name: "Spring Boot", category: "Frameworks/Libraries", icon: Cpu },
+    { name: "Git", category: "Tools", icon: Github },
+    { name: "TensorBoard", category: "Tools", icon: Zap },
+    { name: "Unity", category: "Tools", icon: Zap }, // Consider a game engine icon if available
+    { name: "Pandas", category: "Frameworks/Libraries", icon: Database },
+    { name: "NumPy", category: "Frameworks/Libraries", icon: Database },
+    { name: "Matplotlib", category: "Frameworks/Libraries", icon: Zap }, // Consider a chart icon
     { name: "Agile Methodologies", category: "General", icon: Users },
     { name: "Problem Solving", category: "General", icon: Star },
     { name: "Team Collaboration", category: "General", icon: Users },
   ],
   experience: [
     {
-      role: "Senior Software Engineer",
-      company: "Innovatech Solutions",
-      period: "Jan 2021 - Present",
+      role: "Research Intern",
+      company: "Hacettepe Biological Data Science Laboratory",
+      location: "Ankara (Assumed)",
+      period: "March 2025 - Present",
       responsibilities: [
-        "Led a team of 5 developers in architecting and implementing a new microservices-based platform, enhancing system scalability by 40% and reducing latency by 15%.",
-        "Developed and maintained critical features for the company's flagship SaaS product using React, Node.js, and TypeScript, serving over 10,000 active users.",
-        "Engineered and integrated an AI-powered recommendation engine, which uplifted user engagement metrics by 25%.",
-        "Championed best practices in code quality, testing, and CI/CD pipelines; mentored junior engineers."
+        "Contributing to the MIND project under the supervision of Prof. Dr. Tunca Doğan.",
+        "Focusing on transformer-based foundation models for molecular representation learning."
       ],
       icon: Briefcase,
     },
     {
-      role: "Software Developer",
-      company: "Tech Startup Inc.",
-      period: "Jun 2018 - Dec 2020",
+      role: "Software Engineer Intern",
+      company: "Rocksoft",
+      location: "Ankara",
+      period: "June - Nov 2024, Jan - Feb 2025",
       responsibilities: [
-        "Key contributor to the development of a CRM platform, focusing on front-end features with Angular and back-end services with Python (Django).",
-        "Successfully delivered multiple product modules, from requirement gathering to deployment, in a fast-paced agile environment.",
-        "Implemented robust testing strategies, increasing code coverage by 30%."
+        "Developed AI models for an Electronic Warfare project using Reinforcement Learning.",
+        "Contributed to all stages of development; the project was later awarded funding under the TÜBİTAK 1501 Industrial R&D Support program.",
+        "Designed and tested simulations for intelligent system behaviors using Stable-Baselines3, Unity, and Python.",
+        "Worked on jamming type selection and power control optimization for countering multifunction radars with Deep Reinforcement Learning."
+      ],
+      icon: Briefcase,
+    },
+    {
+      role: "Intern",
+      company: "Akça Medikal",
+      location: "Remote",
+      period: "July 2022 - October 2022",
+      responsibilities: [
+        "Enhanced Akça Medikal's website visibility through SEO strategies, contributing to its top ranking in Turkey for stethoscope-related searches."
       ],
       icon: Briefcase,
     },
   ],
   education: [
     {
-      degree: "M.S. in Computer Science",
-      institution: "Stanford University",
-      period: "2016 - 2018",
-      details: ["Specialization: Artificial Intelligence", "Thesis: 'Scalable Machine Learning Models for Web Applications'", "GPA: 3.9/4.0"],
+      degree: "Bachelor's degree, Computer Engineering",
+      institution: "Hacettepe University",
+      period: "September 2021 - July 2026 (Expected)",
+      details: ["GPA: 3.43/4.0"],
       icon: GraduationCap,
+    },
+  ],
+  volunteering: [
+    {
+      role: "Captain of the R&D AI Unit",
+      organization: "ACM Hacettepe",
+      period: "August 2024 - Present",
+      description: [
+        "Led AI projects, guided teams.",
+        "Taught a Reinforcement Learning course to R&D members."
+      ],
+      icon: UsersRound,
     },
     {
-      degree: "B.S. in Software Engineering",
-      institution: "University of California, Berkeley",
-      period: "2012 - 2016",
-      details: ["Graduated with High Honors", "Dean's List 2014-2016", "Capstone Project: 'Real-time Collaborative Editor'"],
-      icon: GraduationCap,
+      role: "Social Media and Graphic Design Team Coordinator",
+      organization: "GDSC Hacettepe",
+      period: "October 2022 - July 2023",
+      description: [
+        // CV doesn't list specific responsibilities here, can be left as is or a generic one added
+        "Coordinated social media presence and graphic design efforts for the Google Developer Student Club."
+      ],
+      icon: UsersRound,
+    }
+  ],
+  certifications: [
+    {
+      name: "Machine Learning Specialization",
+      issuer: "DeepLearning.AI",
+      date: "January 2024",
+      icon: Award,
     },
+    {
+      name: "Machine Learning Summer Camp",
+      issuer: "Miuul",
+      date: "August 2023",
+      icon: Award,
+    }
   ],
   projects: [
     {
-      id: "ai-content-platform",
-      title: "AI-Powered Content Platform",
-      shortDescription: "A revolutionary platform for generating and curating high-quality blog content using advanced NLP models and generative AI.",
-      longDescription: "This project involved building a full-stack application enabling users to generate article ideas, draft content with AI assistance (GPT-3.5/4 based), and manage their publications seamlessly. The backend, built with Python (FastAPI), interfaces with various NLP models. The frontend, developed using Next.js and Tailwind CSS, offers a modern and intuitive user experience. Key features include real-time collaboration, version history, plagiarism checking, and SEO optimization tools.",
-      technologies: ["Next.js", "Python", "FastAPI", "Generative AI", "NLP", "Tailwind CSS", "PostgreSQL", "Docker", "Stripe API"],
+      id: "image-processing-edge-detection",
+      title: "Image Processing and Edge Detection",
+      shortDescription: "A C++ system for image manipulation, including convolution, sharpening, Sobel edge detection, and LSB steganography.",
+      longDescription: "Developed an image processing system using C++ for performing matrix-based operations such as convolution, image sharpening, and Sobel edge detection. The system also includes an additional functionality to encode and decode hidden messages using LSB (Least Significant Bit) steganography, allowing for covert data embedding within images.",
+      technologies: ["C++", "Image Processing", "Steganography", "Algorithm Development"],
       imageUrl: "https://placehold.co/600x400.png",
-      dataAiHint: "AI writing blog",
-      projectUrl: "#",
-      repoUrl: "#",
+      dataAiHint: "image processing algorithm",
+      repoUrl: "https://github.com/demrr/repo1",
     },
     {
-      id: "ecom-analytics-dashboard",
-      title: "E-commerce Analytics Dashboard",
-      shortDescription: "A comprehensive analytics dashboard providing actionable insights and visualizations for e-commerce businesses.",
-      longDescription: "Developed a powerful analytics dashboard that integrates seamlessly with major e-commerce platforms like Shopify and WooCommerce via their APIs. It visualizes key performance indicators such as sales trends, customer lifetime value, conversion rates, and inventory turnover. Built with React, Recharts for dynamic charting, Node.js, and Express, leveraging a ClickHouse data warehouse for efficient large-scale data querying and aggregation.",
-      technologies: ["React", "Recharts", "Node.js", "Express", "MongoDB", "ClickHouse", "Shopify API", "OAuth"],
+      id: "16-personality-knn",
+      title: "16 Personality (KNN Classification)",
+      shortDescription: "A Python-based K-Nearest Neighbor (KNN) algorithm for a real-world classification problem, using Pandas, NumPy, and Matplotlib.",
+      longDescription: "Implemented a Python-based K-Nearest Neighbor (KNN) algorithm to solve a real-world classification problem. This project involved data preprocessing, model training, and evaluation, utilizing popular data science libraries such as Pandas for data manipulation, NumPy for numerical operations, and Matplotlib for data visualization to understand the dataset and model performance.",
+      technologies: ["Python", "K-Nearest Neighbor (KNN)", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
       imageUrl: "https://placehold.co/600x400.png",
-      dataAiHint: "dashboard chart",
-      projectUrl: "#",
-    },
-    {
-      id: "smart-iot-controller",
-      title: "Smart Home IoT Controller",
-      shortDescription: "A cross-platform mobile app to control and monitor diverse smart home devices via a secure, custom IoT platform.",
-      longDescription: "Created a user-friendly cross-platform mobile application using React Native that communicates with a custom-built IoT platform. Users can manage various smart devices (lights, thermostats, security cameras), set complex automation schedules, and receive real-time notifications and alerts. The backend infrastructure was developed using Go for high performance and MQTT protocol for efficient, low-latency device communication. Implemented end-to-end encryption for device data.",
-      technologies: ["React Native", "Go", "MQTT", "Firebase Auth", "IoT", "SQLite", "Bluetooth LE"],
-      imageUrl: "https://placehold.co/600x400.png",
-      dataAiHint: "smart home mobile",
-      repoUrl: "#",
+      dataAiHint: "machine learning classification",
+      repoUrl: "https://github.com/demrr/repo2",
     },
   ],
-  cvPath: "/yusuf_demir_cv.pdf",
+  cvPath: "/Yusuf_Demir_CV.pdf", // Updated CV path
   socials: [
-    { name: "LinkedIn", url: "https://linkedin.com/in/example", icon: Linkedin },
-    { name: "GitHub", url: "https://github.com/example", icon: Github },
-    { name: "Email", url: "mailto:yusuf.demir@example.com", icon: Mail },
+    { name: "LinkedIn", url: "https://linkedin.com/in/yusufdemrr", icon: Linkedin },
+    { name: "GitHub", url: "https://github.com/yusufdemrr", icon: Github },
+    { name: "Email", url: "mailto:yusufdemrr@hotmail.com", icon: Mail },
   ]
 };
