@@ -1,19 +1,25 @@
-# Firebase Studio
+# My Personal Website
 
-## My Personal Website
+This repository contains the source code for my personal website.
 
-This is the code for my personal website, built with the following technologies:
+## Technologies Used
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
+This website is built using the following technologies:
 
 ## Getting Started
 
-To run this project locally, follow these steps:
+*   Next.js
+*   React
+*   TypeScript
+*   Tailwind CSS
 
-1. Install the dependencies:
+## Running Locally
+
+To set up and run the project on your local machine, follow these steps:
+
+1.  Clone the repository:
+
+
 
 
 To get started, take a look at src/app/page.tsx.
