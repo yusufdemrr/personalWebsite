@@ -1,10 +1,14 @@
 
+'use client';
+
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { FileText, Menu, X, Home as HomeIcon } from 'lucide-react'; // Added HomeIcon
 import { cvData } from '@/data/cv';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { DialogTitle } from '@radix-ui/react-dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const NavLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => (
  <>
@@ -44,6 +48,9 @@ export function MainLayout({ children }: { children: ReactNode }) {
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] bg-background p-6">
                 <div className="flex flex-col items-start gap-2">
+                  <VisuallyHidden>
+                    <DialogTitle>Mobile menu</DialogTitle>
+                  </VisuallyHidden>
                  <SheetClose asChild>
                     <Button variant="ghost" size="icon" className="absolute top-4 right-4">
                       <X className="h-5 w-5" />

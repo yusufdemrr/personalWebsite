@@ -113,6 +113,10 @@
     @apply bg-background text-foreground;
     font-family: var(--font-geist-sans), sans-serif;
   }
+  /* Add scroll-margin-top to section headers to account for the fixed header */
+  h2 {
+    scroll-margin-top: 100px; /* Adjust this value if your header height is different */
+  }
   /* Add custom scrollbar styling for a more polished look */
   ::-webkit-scrollbar {
     width: 8px;

@@ -94,7 +94,7 @@ export default function HomePage() {
       </Section>
 
       {/* Experience Section */}
-      <Section title="Work Experience" id="experience" subtitle="Milestones in my professional career.">
+      <Section title="Work Experience" id="experience" subtitle="Milestones in my professional career." className="mt-24">
         <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-border/70 md:before:mx-auto md:before:ml-0">
           {cvData.experience.map((exp: ExperienceEntry, index) => (
             <div key={index} className="relative flex items-start md:grid md:grid-cols-2 md:gap-8">
@@ -122,7 +122,7 @@ export default function HomePage() {
       </Section>
       
       {/* Volunteering Section */}
-      <Section title="Volunteering" id="volunteering" subtitle="Giving back to the community.">
+      <Section title="Volunteering" id="volunteering" subtitle="Giving back to the community." className="mt-24">
         <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-border/70 md:before:mx-auto md:before:ml-0">
           {cvData.volunteering.map((vol: VolunteeringEntry, index) => (
             <div key={index} className="relative flex items-start md:grid md:grid-cols-2 md:gap-8">
@@ -150,7 +150,7 @@ export default function HomePage() {
       </Section>
 
       {/* Education Section */}
-      <Section title="Education" id="education" subtitle="My academic background and qualifications.">
+      <Section title="Education" id="education" subtitle="My academic background and qualifications." className="mt-24">
          <div className="grid md:grid-cols-1 gap-8">
           {cvData.education.map((edu: EducationEntry, index) => (
             <Card key={index} className="shadow-lg">
@@ -173,7 +173,7 @@ export default function HomePage() {
       </Section>
 
       {/* Certifications Section */}
-      <Section title="Certifications" id="certifications" subtitle="My professional certifications and achievements.">
+      <Section title="Certifications" id="certifications" subtitle="My professional certifications and achievements." className="mt-24">
          <div className="grid md:grid-cols-2 gap-8">
           {cvData.certifications.map((cert: Certification, index) => (
             <Card key={index} className="shadow-lg">
@@ -189,7 +189,7 @@ export default function HomePage() {
       </Section>
 
       {/* Projects Section */}
-      <Section title="Featured Projects" id="projects" subtitle="Some projects I'm proud of.">
+      <Section title="Featured Projects" id="projects" subtitle="Some projects I'm proud of." className="mt-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
           {cvData.projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
@@ -198,7 +198,7 @@ export default function HomePage() {
       </Section>
 
       {/* Contact Section */}
-      <Section title="Get In Touch" id="contact" className="bg-card/30" subtitle="I'm always open to discussing new projects, creative ideas, or opportunities.">
+      <Section title="Get In Touch" id="contact" className="bg-card/30 mt-24" subtitle="I'm always open to discussing new projects, creative ideas, or opportunities.">
         <div className="max-w-md mx-auto text-center">
           <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
             <a href={`mailto:${cvData.email}?subject=Inquiry from ${cvData.name}'s Website`}>
