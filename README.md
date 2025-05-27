@@ -35,4 +35,4 @@ To set up and run the project on your local machine, follow these steps:
 3. Run the development server:
 
    ```bash
-   npm run dev```
+   npm run dev
