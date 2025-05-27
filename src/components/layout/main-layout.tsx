@@ -8,28 +8,28 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/s
 const SiteLogo = () => (
   <Link href="/" className="text-2xl font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-2">
     <FileText className="h-7 w-7" />
-    <span>{cvData.name.split(' ')[0]}'s Resume</span>
+    <span>Yusuf Demir</span>
   </Link>
 );
 
 const NavLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => (
   <>
     <Link href="/#about" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
-      About
+      Hakkımda
     </Link>
     <Link href="/#experience" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
-      Experience
+      Deneyim
     </Link>
     <Link href="/#projects" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
-      Projects
+      Projeler
     </Link>
     <Link href="/#contact" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
-      Contact
+      İletişim
     </Link>
     <Button variant="outline" size="sm" asChild className="mt-4 md:mt-0 md:ml-4">
       <a href={cvData.cvPath} download={`${cvData.name.replace(' ', '_')}_CV.pdf`}>
         <Download className="mr-2 h-4 w-4" />
-        Download CV
+        CV İndir
       </a>
     </Button>
   </>
@@ -49,7 +49,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
-                  <span className="sr-only">Open menu</span>
+                  <span className="sr-only">Menüyü aç</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] bg-background p-6">
@@ -57,7 +57,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
                  <SheetClose asChild>
                     <Button variant="ghost" size="icon" className="absolute top-4 right-4">
                       <X className="h-5 w-5" />
-                      <span className="sr-only">Close menu</span>
+                      <span className="sr-only">Menüyü kapat</span>
                     </Button>
                   </SheetClose>
                   <div className="mb-4">
@@ -84,10 +84,10 @@ export function MainLayout({ children }: { children: ReactNode }) {
             ))}
           </div>
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} {cvData.name}. All rights reserved.
+            © {new Date().getFullYear()} {cvData.name}. Tüm hakları saklıdır.
           </p>
           <p className="text-xs text-muted-foreground/70 mt-1">
-            Built with Next.js & Tailwind CSS. Styled by Purple Hues.
+            Next.js & Tailwind CSS ile oluşturuldu.
           </p>
         </div>
       </footer>

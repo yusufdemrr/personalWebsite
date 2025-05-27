@@ -33,7 +33,7 @@ function ProjectCard({ project }: { project: import('@/data/cv').Project }) {
       <CardFooter className="p-6 pt-0">
         <Link href={`/projects/${project.id}`} className="w-full">
           <Button variant="outline" className="w-full group">
-            View Details <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            Detayları Gör <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </Link>
       </CardFooter>
@@ -62,12 +62,12 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
               <a href={cvData.cvPath} download={`${cvData.name.replace(' ', '_')}_CV.pdf`}>
-                <Download className="mr-2 h-5 w-5" /> Download CV
+                <Download className="mr-2 h-5 w-5" /> CV İndir
               </a>
             </Button>
             <Button size="lg" variant="outline" asChild className="shadow-lg hover:shadow-accent/50 transition-shadow">
-              <a href={`mailto:${cvData.email}?subject=Contact from ${cvData.name}'s Website`}>
-                <Mail className="mr-2 h-5 w-5" /> Contact Me
+              <a href={`mailto:${cvData.email}?subject=${cvData.name}'in Web Sitesinden İletişim`}>
+                <Mail className="mr-2 h-5 w-5" /> Bana Ulaşın
               </a>
             </Button>
           </div>
@@ -75,7 +75,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <Section title="About Me" id="about" subtitle="A little bit about my journey and passion.">
+      <Section title="Hakkımda" id="about" subtitle="Yolculuğum ve tutkum hakkında biraz bilgi.">
         <Card className="p-6 md:p-8 shadow-lg">
           <CardContent>
             <p className="text-foreground/90 leading-relaxed whitespace-pre-line text-center md:text-left">
@@ -86,7 +86,7 @@ export default function HomePage() {
       </Section>
 
       {/* Skills Section */}
-      <Section title="My Expertise" id="skills" subtitle="Technologies and tools I work with.">
+      <Section title="Uzmanlık Alanlarım" id="skills" subtitle="Çalıştığım teknolojiler ve araçlar.">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map(category => (
             <Card key={category} className="shadow-md">
@@ -109,7 +109,7 @@ export default function HomePage() {
       </Section>
 
       {/* Experience Section */}
-      <Section title="Work Experience" id="experience" subtitle="My professional career milestones.">
+      <Section title="İş Deneyimi" id="experience" subtitle="Profesyonel kariyerimdeki kilometre taşları.">
         <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-border/70 md:before:mx-auto md:before:ml-0">
           {cvData.experience.map((exp, index) => (
             <div key={index} className="relative flex items-start md:grid md:grid-cols-2 md:gap-8">
@@ -136,7 +136,7 @@ export default function HomePage() {
       </Section>
 
       {/* Education Section */}
-      <Section title="Education" id="education" subtitle="My academic background and qualifications.">
+      <Section title="Eğitim" id="education" subtitle="Akademik geçmişim ve niteliklerim.">
          <div className="grid md:grid-cols-2 gap-8">
           {cvData.education.map((edu, index) => (
             <Card key={index} className="shadow-lg">
@@ -159,7 +159,7 @@ export default function HomePage() {
       </Section>
 
       {/* Projects Section */}
-      <Section title="Featured Projects" id="projects" subtitle="Some of the projects I'm proud of.">
+      <Section title="Öne Çıkan Projeler" id="projects" subtitle="Gurur duyduğum bazı projeler.">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cvData.projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
@@ -168,11 +168,11 @@ export default function HomePage() {
       </Section>
 
       {/* Contact Section */}
-      <Section title="Let's Connect" id="contact" className="bg-card/30" subtitle="I'm always open to discussing new projects, creative ideas, or opportunities.">
+      <Section title="İletişime Geçelim" id="contact" className="bg-card/30" subtitle="Yeni projeleri, yaratıcı fikirleri veya fırsatları görüşmeye her zaman açığım.">
         <div className="max-w-md mx-auto text-center">
           <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
-            <a href={`mailto:${cvData.email}?subject=Inquiry from ${cvData.name}'s Website`}>
-              <Mail className="mr-2 h-5 w-5" /> Send an Email
+            <a href={`mailto:${cvData.email}?subject=${cvData.name}'in Web Sitesinden Talep`}>
+              <Mail className="mr-2 h-5 w-5" /> E-posta Gönder
             </a>
           </Button>
           <div className="mt-8 flex justify-center gap-6">

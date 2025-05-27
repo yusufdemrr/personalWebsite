@@ -17,10 +17,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `Purple Resume - ${cvData.name}`,
-    template: `%s | Purple Resume - ${cvData.name}`,
+    default: `Yusuf Demir | Kişisel Web Sitesi`,
+    template: `%s | Yusuf Demir`,
   },
-  description: `${cvData.name}'s personal resume website. ${cvData.title}.`,
+  description: `${cvData.name}'in kişisel portfolyo ve özgeçmiş sitesi. ${cvData.title}.`,
 };
 
 export default function RootLayout({

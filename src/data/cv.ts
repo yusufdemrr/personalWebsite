@@ -50,9 +50,9 @@ export interface CVData {
 }
 
 export const cvData: CVData = {
-  name: "Alex Johnson",
+  name: "Yusuf Demir",
   title: "Full-Stack Developer & AI Innovator",
-  email: "alex.j.dev@example.com",
+  email: "yusuf.demir@example.com",
   shortIntro: "Crafting intelligent web solutions with a passion for cutting-edge technology.",
   summary: "A dynamic and results-oriented Full-Stack Developer with over 5 years of expertise in designing, developing, and deploying robust web applications and AI-driven features. Adept at leading project lifecycles from concept to launch, with a strong commitment to continuous learning and leveraging emerging technologies. Seeking to contribute to ambitious projects that push the boundaries of web and AI.",
   skills: [
@@ -152,10 +152,10 @@ export const cvData: CVData = {
       repoUrl: "#",
     },
   ],
-  cvPath: "/alex_johnson_cv.pdf",
+  cvPath: "/yusuf_demir_cv.pdf",
   socials: [
     { name: "LinkedIn", url: "https://linkedin.com/in/example", icon: Linkedin },
     { name: "GitHub", url: "https://github.com/example", icon: Github },
-    { name: "Email", url: "mailto:alex.j.dev@example.com", icon: Mail },
+    { name: "Email", url: "mailto:yusuf.demir@example.com", icon: Mail },
   ]
 };
