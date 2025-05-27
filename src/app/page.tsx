@@ -11,18 +11,10 @@ import { Section } from '@/components/shared/section';
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/30 bg-card/80 backdrop-blur-sm">
+    <Card className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-primary/30 bg-card/80 backdrop-blur-sm p-6">
       <CardHeader className="p-0">
-        <div className="aspect-[16/9] relative overflow-hidden">
-          <Image
-            src={project.imageUrl || "https://placehold.co/600x400.png"}
-            alt={project.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-            data-ai-hint={project.dataAiHint || "technology abstract"}
-          />
-        </div>
       </CardHeader>
+
       <CardContent className="p-6 flex-grow">
         <h3 className="text-xl font-semibold text-foreground mb-2">{project.title}</h3>
         <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.shortDescription}</p>

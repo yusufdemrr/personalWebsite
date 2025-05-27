@@ -45,7 +45,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     <Section title={project.title} className="py-12 md:py-16">
         <div className="mb-8">
             <Button variant="outline" asChild className="group">
-                <Link href="/#projects">
+                <Link href="/#projects" scroll={false}>
                 <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
                 Back to All Projects
                 </Link>

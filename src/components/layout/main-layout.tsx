@@ -6,16 +6,12 @@ import { FileText, Menu, X, Home as HomeIcon } from 'lucide-react'; // Added Hom
 import { cvData } from '@/data/cv';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 
-const SiteLogo = () => (
-  <Link href="/" className="text-2xl font-bold text-primary hover:text-primary/80 transition-colors flex items-center gap-2">
-    <HomeIcon className="h-7 w-7" />
-    <span>Home</span>
-  </Link>
-);
-
 const NavLinks = ({ onLinkClick }: { onLinkClick?: () => void }) => (
-  <>
-    <Link href="/#experience" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
+ <>
+    <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
+ Home
+ </Link>
+ <Link href="/#experience" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
       Experience
     </Link>
     <Link href="/#volunteering" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2" onClick={onLinkClick}>
@@ -34,9 +30,8 @@ export function MainLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-          <SiteLogo />
-          <nav className="hidden md:flex gap-6 items-center">
+        <div className="container mx-auto flex h-20 items-center justify-center px-4 md:px-6">
+          <nav className="hidden md:flex gap-6 items-center text-center">
             <NavLinks />
           </nav>
           <div className="md:hidden">
@@ -55,9 +50,6 @@ export function MainLayout({ children }: { children: ReactNode }) {
                       <span className="sr-only">Close menu</span>
                     </Button>
                   </SheetClose>
-                  <div className="mb-4">
-                     <SiteLogo />
-                  </div>
                   <nav className="flex flex-col gap-4 w-full">
                     <NavLinks onLinkClick={() => document.dispatchEvent(new KeyboardEvent('keydown', {'key': 'Escape'}))} />
                   </nav>
