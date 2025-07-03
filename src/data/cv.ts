@@ -1,4 +1,3 @@
-
 import type { ElementType } from 'react';
 import { Briefcase, GraduationCap, Cpu, Code, Database, Zap, Users, Linkedin, Github, FileText, Mail, Star, Award, UsersRound } from 'lucide-react'; // Added Award, UsersRound
 
@@ -75,7 +74,7 @@ export const cvData: CVData = {
   email: "yusufdemrr@hotmail.com",
   location: "Ankara, Türkiye",
   shortIntro: "A proactive Computer Engineering student at Hacettepe University with hands-on experience in software development, machine learning, and AI research. Passionate about building innovative solutions.",
-  summary: `Driven Computer Engineering student at Hacettepe University (GPA: 3.43/4.0) with a strong foundation in software development and a keen interest in Artificial Intelligence.
+  summary: `Driven Computer Engineering student at Hacettepe University (GPA: 3.48/4.0) with a strong foundation in software development and a keen interest in Artificial Intelligence.
 Proven ability to contribute to research projects, develop AI models, and work with diverse technologies including Python, C++, Java, JavaScript, PyTorch, React, and Spring Boot.
 Actively involved in tech communities through volunteering and leadership roles, such as Captain of the R&D AI Unit at ACM Hacettepe and Social Media & Graphic Design Team Coordinator at GDSC Hacettepe. Eager to apply skills and learn in challenging environments.`,
   skills: [
@@ -101,9 +100,17 @@ Actively involved in tech communities through volunteering and leadership roles,
   ],
   experience: [
     {
+      role: "Intern",
+      company: "Goaltech",
+      location: "Ankara",
+      period: "June 2025 - Present",
+      responsibilities: [],
+      icon: Briefcase,
+    },
+    {
       role: "Research Intern",
       company: "Hacettepe Biological Data Science Laboratory",
-      location: "Ankara (Assumed)",
+      location: "Ankara",
       period: "March 2025 - Present",
       responsibilities: [
         "Contributing to the MIND project under the supervision of Prof. Dr. Tunca Doğan.",
@@ -133,14 +140,14 @@ Actively involved in tech communities through volunteering and leadership roles,
         "Enhanced Akça Medikal's website visibility through SEO strategies, contributing to its top ranking in Turkey for stethoscope-related searches."
       ],
       icon: Briefcase,
-    },
+    }
   ],
   education: [
     {
       degree: "Bachelor's degree, Computer Engineering",
       institution: "Hacettepe University",
       period: "September 2021 - July 2026 (Expected)",
-      details: ["GPA: 3.43/4.0"],
+      details: ["GPA: 3.48/4.0"],
       icon: GraduationCap,
     },
   ],
