@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { cvData } from '@/data/cv';
@@ -44,7 +43,7 @@ export default function HomePage() {
       <section className="py-20 md:py-32 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-50 -z-10"></div>
         <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-accent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-orange-400 to-purple-500">
             {cvData.name}
           </h1>
           <p className="text-xl md:text-2xl text-foreground/90 mb-6">
