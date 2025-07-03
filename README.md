@@ -16,6 +16,7 @@ This repository contains the source code for my personal website.
 - Optimized for performance and accessibility
 - Easy to maintain and extend
 - Server-side rendering (SSR) support
+- Dockerized for easy deployment
 
 ## Running Locally
 
@@ -25,14 +26,29 @@ To set up and run the project on your local machine, follow these steps:
 
    ```bash
    git clone https://github.com/yusufdemrr/presonalWebsite.git
+   cd personalWebsite
+   ```
 
 2. Install the required dependencies:
 
    ```bash
-   cd personalWebsite
    npm install
+   ```
 
 3. Run the development server:
 
    ```bash
    npm run dev
+   ```
+
+## Running with Docker
+
+To build and run the app using Docker:
+
+1. Build and start the container:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+2. Visit [http://localhost:3000](http://localhost:3000) in your browser.
