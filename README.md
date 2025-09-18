@@ -3,6 +3,7 @@
 This repository contains the source code for my personal website.
 
 [https://yusufdemir.netlify.app/](https://yusufdemir.netlify.app/)
+
 <img width="1491" height="859" alt="image" src="https://github.com/user-attachments/assets/77a974fb-e3ab-4786-b56f-99f230b81490" />
 
 ## Technologies Used
