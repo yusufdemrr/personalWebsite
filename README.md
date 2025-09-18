@@ -2,6 +2,8 @@
 
 This repository contains the source code for my personal website.
 
+[https://yusufdemir.netlify.app/](https://yusufdemir.netlify.app/)
+
 ## Technologies Used
 
 - [Next.js](https://nextjs.org/) – React framework for production
