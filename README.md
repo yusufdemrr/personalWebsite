@@ -25,11 +25,7 @@ This repository contains the source code for my personal website.
 
 ## Deployment
 
-This site is deployed on:
-- **Netlify**: [https://yusufdemir.netlify.app/](https://yusufdemir.netlify.app/)
-- **GitHub Pages**: Automatic deployment via GitHub Actions
-
-To deploy to GitHub Pages, see the [GitHub Pages Deployment Guide](docs/GITHUB_PAGES_DEPLOYMENT.md).
+This site is deployed on [Netlify](https://yusufdemir.netlify.app/).
 
 ## Updating Your CV
 
