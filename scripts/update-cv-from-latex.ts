@@ -359,7 +359,7 @@ export interface CVData {
 
 export const cvData: CVData = {
   name: "${parsed.name}",
-  title: "Computer Engineering Student & AI Developer",
+  title: "Computer Engineering Student & AI Engineer",
   email: "${parsed.email}",
   location: "${parsed.location}",
   shortIntro: "A proactive Computer Engineering student at Hacettepe University with hands-on experience in software development, machine learning, and AI research. Passionate about building innovative solutions.",
