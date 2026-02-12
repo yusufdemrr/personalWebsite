@@ -149,34 +149,6 @@ Proven ability to contribute to research projects, develop AI models, and work w
       period: "September 2021 - July 2026 \hspace{-0.1cm",
       details: ["GPA: 3.49/4.0"],
       icon: GraduationCap,
-    },
-    {
-      degree: "Goaltech, Ankara",
-      institution: "Intern \& Part-time Software Engineer",
-      period: "June – Aug 2025, Oct 2025 – Present",
-      details: ["Contributed to the backend development of a cryptocurrency app using \textbf{FastAPI},", "Designed and deployed cloud-native LLM-based agent systems on \textbf{AWS} using \textbf{Amazon Bedrock}, focusing on scalable orchestration, retrieval integration, and production-grade deployment.", "Built backend services with \textbf{Docker} and integrated them into a \textbf{CI/CD DevOps} pipeline for cloud deployment."],
-      icon: GraduationCap,
-    },
-    {
-      degree: "Hacettepe Biological Data Science Laboratory",
-      institution: "Research Intern",
-      period: "March 2025 – Present",
-      details: ["Contributed to the MIND project under Prof.\ Dr.\ Tunca Doğan, developing a universal \textbf{AI foundation model} that unifies diverse biomolecular entities (proteins, RNAs, small molecules, complexes) into a shared representation for downstream AI tasks.", "Developed \textbf{Graph Transformer-based models} integrating multi-modal biological data.", "Optimized \textbf{data loading and batching pipelines}, enabling efficient large-scale pretraining."],
-      icon: GraduationCap,
-    },
-    {
-      degree: "Jotform, Ankara",
-      institution: "Data Science Intern",
-      period: "August 2025 – September 2025",
-      details: ["Built an autonomous web agent using \textbf{Python}, \textbf{LangGraph}, and \textbf{RAG} with \textbf{Qdrant}.", "Designed the agent's reasoning loop and deployed it via a \textbf{FastAPI}-based \textbf{RESTful} service."],
-      icon: GraduationCap,
-    },
-    {
-      degree: "Rocksoft, Ankara",
-      institution: "Software Engineer Intern",
-      period: "June – Nov 2024, Jan – Feb 2025",
-      details: ["Built \textbf{RL} models for an Electronic Warfare project, which received TÜBİTAK 1501 funding.", "Designed and tested simulations for intelligent system behaviors using \textbf{Stable-Baselines3}, \textbf{Unity}, and \textbf{Python}.", "Worked on jamming type selection and power control optimization for countering multifunction radars with \textbf{Deep Reinforcement Learning}."],
-      icon: GraduationCap,
     }
   ],
   volunteering: [

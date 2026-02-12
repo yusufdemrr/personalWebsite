@@ -125,31 +125,35 @@ function parseLatexCV(latexContent: string): ParsedCV {
         parsed.gpa = gpaMatch[1];
     }
 
-    // Parse Education
-    const educationRegex = /\\begin\{twocolentry\}\{([^}]+)\}[\s\S]*?\\textbf\{([^}]+)\},\s*([^\\]+)\\end\{twocolentry\}([\s\S]*?)(?=\\begin\{twocolentry\}|\\section|$)/g;
-    let eduMatch;
-    while ((eduMatch = educationRegex.exec(cleanContent)) !== null) {
-        const period = cleanLatexText(eduMatch[1]);
-        const institution = eduMatch[2];
-        const degree = eduMatch[3].trim();
+    // Parse Education - only within Education section
+    const educationSection = cleanContent.match(/\\section\{Education\}([\s\S]*?)\\section\{Experience\}/);
+    if (educationSection) {
+        const eduContent = educationSection[1];
+        const educationRegex = /\\begin\{twocolentry\}\{([^}]+)\}[\s\S]*?\\textbf\{([^}]+)\},\s*([^\\]+)\\end\{twocolentry\}([\s\S]*?)(?=\\begin\{twocolentry\}|$)/g;
+        let eduMatch;
+        while ((eduMatch = educationRegex.exec(eduContent)) !== null) {
+            const period = cleanLatexText(eduMatch[1]);
+            const institution = eduMatch[2];
+            const degree = eduMatch[3].trim();
 
-        const details: string[] = [];
-        const highlightsMatch = eduMatch[4].match(/\\begin\{highlights\}([\s\S]*?)\\end\{highlights\}/);
-        if (highlightsMatch) {
-            const items = highlightsMatch[1].match(/\\item\s+([^\n]+)/g);
-            if (items) {
-                items.forEach(item => {
-                    details.push(item.replace(/\\item\s+/, '').trim());
-                });
+            const details: string[] = [];
+            const highlightsMatch = eduMatch[4].match(/\\begin\{highlights\}([\s\S]*?)\\end\{highlights\}/);
+            if (highlightsMatch) {
+                const items = highlightsMatch[1].match(/\\item\s+([^\n]+)/g);
+                if (items) {
+                    items.forEach(item => {
+                        details.push(item.replace(/\\item\s+/, '').trim());
+                    });
+                }
             }
-        }
 
-        parsed.education.push({
-            degree,
-            institution,
-            period,
-            details,
-        });
+            parsed.education.push({
+                degree,
+                institution,
+                period,
+                details,
+            });
+        }
     }
 
     // Parse Experience
