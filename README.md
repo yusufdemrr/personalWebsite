@@ -19,9 +19,17 @@ This repository contains the source code for my personal website.
 - Built with TypeScript and Tailwind CSS
 - Optimized for performance and accessibility
 - Easy to maintain and extend
-- Server-side rendering (SSR) support
+- Static site generation (SSG) for optimal performance
 - Dockerized for easy deployment
 - **Automated CV updates from LaTeX source** – Update your CV data by simply editing the LaTeX file and running a single command
+
+## Deployment
+
+This site is deployed on:
+- **Netlify**: [https://yusufdemir.netlify.app/](https://yusufdemir.netlify.app/)
+- **GitHub Pages**: Automatic deployment via GitHub Actions
+
+To deploy to GitHub Pages, see the [GitHub Pages Deployment Guide](docs/GITHUB_PAGES_DEPLOYMENT.md).
 
 ## Updating Your CV
 
