@@ -146,7 +146,7 @@ Proven ability to contribute to research projects, develop AI models, and work w
     {
       degree: "Bachelor's degree, Computer Engineering",
       institution: "Hacettepe University",
-      period: "September 2021 - July 2026 \hspace{-0.1cm",
+      period: "September 2021 - July 2026",
       details: ["GPA: 3.49/4.0"],
       icon: GraduationCap,
     }

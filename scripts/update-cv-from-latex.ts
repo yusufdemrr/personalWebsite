@@ -129,12 +129,13 @@ function parseLatexCV(latexContent: string): ParsedCV {
     const educationSection = cleanContent.match(/\\section\{Education\}([\s\S]*?)\\section\{Experience\}/);
     if (educationSection) {
         const eduContent = educationSection[1];
-        const educationRegex = /\\begin\{twocolentry\}\{([^}]+)\}[\s\S]*?\\textbf\{([^}]+)\},\s*([^\\]+)\\end\{twocolentry\}([\s\S]*?)(?=\\begin\{twocolentry\}|$)/g;
+        // Updated regex to handle nested braces in the first argument (dates) using (?:[^{}]|\{[^{}]*\})*
+        const educationRegex = /\\begin\{twocolentry\}\{((?:[^{}]|\{[^{}]*\})*)\}[\s\S]*?\\textbf\{([^}]+)\},\s*([^\\]+)\\end\{twocolentry\}([\s\S]*?)(?=\\begin\{twocolentry\}|$)/g;
         let eduMatch;
         while ((eduMatch = educationRegex.exec(eduContent)) !== null) {
             const period = cleanLatexText(eduMatch[1]);
             const institution = eduMatch[2];
-            const degree = eduMatch[3].trim();
+            const degree = cleanLatexText(eduMatch[3]);
 
             const details: string[] = [];
             const highlightsMatch = eduMatch[4].match(/\\begin\{highlights\}([\s\S]*?)\\end\{highlights\}/);
