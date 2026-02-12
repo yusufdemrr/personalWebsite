@@ -59,8 +59,8 @@ To set up and run the project on your local machine, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yusufdemrr/presonalWebsite.git
-   cd personalWebsite
+   git clone https://github.com/yusufdemrr/portfolio.git
+   cd portfolio
    ```
 
 2. Install the required dependencies:
